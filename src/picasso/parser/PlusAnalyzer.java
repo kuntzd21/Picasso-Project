@@ -31,7 +31,7 @@ public class PlusAnalyzer implements SemanticAnalyzerInterface {
 		// Remove the plus token
 		PlusToken ptoken = (PlusToken) tokens.pop(); 
 		
-		if (ptoken.isFunction() != true) {
+		if (!ptoken.isFunction()) {
 			throw new ParseException("Not a function.");
 		}
 		
