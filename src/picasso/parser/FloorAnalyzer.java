@@ -5,8 +5,7 @@ import java.util.Stack;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Floor;
 import picasso.parser.tokens.Token;
-import picasso.parser.tokens.functions.FloorToken;
-import picasso.parser.tokens.NumberToken;
+import picasso.parser.tokens.IdentifierToken;
 
 /**
  * Handles parsing the floor function.
@@ -28,21 +27,20 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		// Need to remove the floor token
-		FloorToken ftoken = (FloorToken) tokens.pop();
+		Token ftoken = (Token) tokens.pop();
 		
 		// Check if the floor token is a function.
-		if (ftoken.isFunction() != true) {
-			throw new ParseException("Not a function.");
+		if (ftoken.toString() != "Floor Function Token") {
+			throw new ParseException("Not a floor function.");
 		}
 		
 		// the parameter is the next token on the stack.
-		NumberToken ntoken = (NumberToken) tokens.pop();
+		IdentifierToken vtoken = (IdentifierToken) tokens.pop();
+		
 		
 		// But, it needs to be processed
-		double value = ntoken.value();
-		
-		if (value < -1 || value > 1) {
-			throw new ParseException("Constant is out of range [-1, 1]");
+		if (vtoken.toString() != "Variable Token: ") {
+			throw new ParseException("Not a variable.");
 		}
 		
 		return new Floor(SemanticAnalyzer.getInstance().generateExpressionTree(
