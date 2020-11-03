@@ -9,7 +9,7 @@ import picasso.parser.language.ExpressionTreeNode;
  *
  */
 
-public class Addition extends BinaryFunction {
+public class Addition extends BinaryOperator {
 
 	/**
 	 * 

@@ -8,7 +8,7 @@ import picasso.parser.language.ExpressionTreeNode;
  * @author Linkimals
  *
  */
-public abstract class BinaryFunction extends ExpressionTreeNode {
+public abstract class BinaryOperator extends ExpressionTreeNode {
 
 	ExpressionTreeNode param;
 	ExpressionTreeNode param2;
@@ -17,7 +17,7 @@ public abstract class BinaryFunction extends ExpressionTreeNode {
 	 * 
 	 * @param param
 	 */
-	public BinaryFunction(ExpressionTreeNode param, ExpressionTreeNode param2) {
+	public BinaryOperator(ExpressionTreeNode param, ExpressionTreeNode param2) {
 		this.param = param;
 		this.param2 = param2;
 	}
