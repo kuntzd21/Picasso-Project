@@ -39,7 +39,6 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 		NumberToken ntoken = (NumberToken) tokens.pop();
 		
 		// But, it needs to be processed
-		
 		double value = ntoken.value();
 		
 		if (value < -1 || value > 1) {
