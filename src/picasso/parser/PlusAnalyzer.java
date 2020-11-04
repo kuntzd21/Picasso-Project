@@ -29,21 +29,21 @@ public class PlusAnalyzer implements SemanticAnalyzerInterface {
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		// Remove the plus token
-		PlusToken ptoken = (PlusToken) tokens.pop(); 
+		Token ptoken = (Token) tokens.pop(); 
 		
-		if (!ptoken.isFunction()) {
-			throw new ParseException("Not a function.");
+		System.out.println(ptoken.toString());
+		
+		if (ptoken.toString() != "Character: +") {
+			throw new ParseException("Not the plus function.");
 		}
 		
 		// the parameters are the next tokens on the stack.
-		NumberToken ntoken = (NumberToken) tokens.pop();
+		//IdentfierToken vtoken = (IdentifierToken) tokens.pop();
 		
 		// But, they need to be processed
-		double value = ntoken.value();
-		
-		if (value < -1 || value > 1) {
-			throw new ParseException("Constant is out of range [-1, 1]");
-		}
+		//if (vtoken.toString() != "Variable Token: ") {
+		//	throw new ParseException("Not a variable.");
+		//}
 		
 		// TODO: Need to finish.
 		return new Addition(SemanticAnalyzer.getInstance().generateExpressionTree(

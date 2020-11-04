@@ -35,13 +35,13 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 		}
 		
 		// the parameter is the next token on the stack.
-		IdentifierToken vtoken = (IdentifierToken) tokens.pop();
+		//IdentifierToken vtoken = (IdentifierToken) tokens.pop();
 		
 		
 		// But, it needs to be processed
-		if (vtoken.toString() != "Variable Token: ") {
-			throw new ParseException("Not a variable.");
-		}
+		//if (vtoken.toString() != "Variable Token: ") {
+		//	throw new ParseException("Not a variable.");
+		//}
 		
 		return new Floor(SemanticAnalyzer.getInstance().generateExpressionTree(
 				tokens));
