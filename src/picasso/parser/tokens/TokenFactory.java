@@ -6,9 +6,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+import picasso.parser.tokens.CharTokenFactory;
 import picasso.parser.ParseException;
 import picasso.parser.language.BuiltinFunctionsReader;
+import picasso.parser.language.CharConstants;
 import picasso.parser.tokens.chars.CommaToken;
+import picasso.parser.tokens.chars.EqualsToken;
 import picasso.parser.tokens.chars.LeftBracketToken;
 import picasso.parser.tokens.chars.RightBracketToken;
 
@@ -31,9 +34,11 @@ public class TokenFactory {
 				return EOFToken.getInstance();
 			case StreamTokenizer.TT_NUMBER:
 				return new NumberToken(tokenizer.nval);
+			case CharConstants.QUOTE:
+				return new StringToken(tokenizer.sval);
 			case StreamTokenizer.TT_WORD:
 
-				Token t = (Token) tokenNameToToken.get(tokenizer.sval);
+				Token t = tokenNameToToken.get(tokenizer.sval);
 
 				// If there is no token with the parsed name, the token must be
 				// an identifier
@@ -47,7 +52,7 @@ public class TokenFactory {
 				if (ct instanceof LeftBracketToken) {
 					return parseColorToken(tokenizer);
 				}
-
+				
 				// TODO: Handle quoted strings
 				// Others?
 
