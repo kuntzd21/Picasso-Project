@@ -46,7 +46,6 @@ public class Tokenizer {
 		tokenizer.wordChars('a', 'z');
 		tokenizer.wordChars('A', 'Z');
 		tokenizer.wordChars('_', '_');
-		tokenizer.wordChars(':', ':');
 
 		tokenizer.eolIsSignificant(false);
 
@@ -54,10 +53,6 @@ public class Tokenizer {
 		tokenizer.parseNumbers();
 
 		tokenizer.ordinaryChar('/');
-
-		// TODO: we may not need to worry about comments
-		tokenizer.slashSlashComments(true);
-		tokenizer.slashStarComments(true);
 
 		List<Token> tokens = new ArrayList<Token>();
 
@@ -123,8 +118,8 @@ public class Tokenizer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String expression = "sin(floor(x + y))";
-
+		//String expression = "sin(floor(x + y))";
+		String expression = "\"cats.jpeg\"";
 		Tokenizer tokenizer = new Tokenizer();
 		System.out.println("Tokens" + tokenizer.parseTokens(expression));
 	}
