@@ -4,9 +4,7 @@ import java.util.Stack;
 
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Addition;
-import picasso.parser.tokens.NumberToken;
 import picasso.parser.tokens.Token;
-import picasso.parser.tokens.operations.PlusToken;
 
 /**
  * Handles parsing the plus or "addition function".
@@ -29,21 +27,15 @@ public class PlusAnalyzer implements SemanticAnalyzerInterface {
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		// Remove the plus token
-		Token ptoken = (Token) tokens.pop(); 
-		
-		System.out.println(ptoken.toString());
-		
-		if (ptoken.toString() != "Character: +") {
-			throw new ParseException("Not the plus function.");
-		}
+		tokens.pop();
 		
 		// the parameters are the next tokens on the stack.
-		//IdentfierToken vtoken = (IdentifierToken) tokens.pop();
-		
 		// But, they need to be processed
-		//if (vtoken.toString() != "Variable Token: ") {
-		//	throw new ParseException("Not a variable.");
-		//}
+		Token ytoken = (Token) tokens.pop();
+		Token xtoken = (Token) tokens.pop();
+		
+		tokens.push(ytoken);
+		tokens.push(xtoken);
 		
 		// TODO: Need to finish.
 		return new Addition(SemanticAnalyzer.getInstance().generateExpressionTree(
