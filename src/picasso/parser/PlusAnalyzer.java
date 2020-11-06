@@ -30,17 +30,13 @@ public class PlusAnalyzer implements SemanticAnalyzerInterface {
 		tokens.pop();
 		
 		// the parameters are the next tokens on the stack.
-		// But, they need to be processed
-//		Token ytoken = (Token) tokens.pop();
-//		Token xtoken = (Token) tokens.pop();
-//		
-//		tokens.push(ytoken);
-//		tokens.push(xtoken);
+		// But, they need to be processed	
+		ExpressionTreeNode right = SemanticAnalyzer.getInstance().generateExpressionTree(
+				tokens);
+		ExpressionTreeNode left = SemanticAnalyzer.getInstance().generateExpressionTree(
+				tokens);
 		
-		// TODO: Need to finish.
-		return new Addition(SemanticAnalyzer.getInstance().generateExpressionTree(
-				tokens), SemanticAnalyzer.getInstance().generateExpressionTree(
-						tokens) );
+		return new Addition(left, right);
 	}
 
 }
