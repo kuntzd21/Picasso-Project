@@ -26,11 +26,11 @@ public class Frame extends JFrame {
 		// add commands to test here
 		ButtonPanel commands = new ButtonPanel(canvas);
 		commands.add("Open", new Reader());
-		commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
+		//commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
 		commands.add("Save", new Writer());
 
 		InputPanel input = new InputPanel(canvas);
-		input.add("Evaluate");
+		input.add("Evaluate",new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
 
 		// add our container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);

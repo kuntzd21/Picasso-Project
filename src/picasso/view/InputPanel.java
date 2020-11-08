@@ -16,7 +16,7 @@ import picasso.view.commands.Evaluater;
 
 public class InputPanel extends JPanel {
 private Canvas myView;
-TextField tF = new TextField("", 30);
+public static TextField tF = new TextField("", 20);
 public static String expression;
 
 	public InputPanel(Canvas view) {
@@ -25,18 +25,17 @@ public static String expression;
 
 
 }
-	public void add(String buttonText) {
+	public void add(String buttonText, final Command<Pixmap> action) {
 		JButton button = new JButton(buttonText);
-		//button.addActionListener(new ActionListener() {
-		//	public void actionPerformed(ActionEvent e) {
-				//action.execute(myView.getPixmap());
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				action.execute(myView.getPixmap());
 				myView.refresh();
-		//	}
-	//	});
+			}
+		});
 				
 		add(tF);
 		add(button);
-		expression = tF.getText();
 
 	}
 
