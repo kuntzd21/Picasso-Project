@@ -118,8 +118,8 @@ public class Tokenizer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//String expression = "sin(floor(x + y))";
-		String expression = "\"cats.jpeg\"";
+		String expression = "x - y";
+		//String expression = "\"cats.jpeg\"";
 		Tokenizer tokenizer = new Tokenizer();
 		System.out.println("Tokens" + tokenizer.parseTokens(expression));
 	}

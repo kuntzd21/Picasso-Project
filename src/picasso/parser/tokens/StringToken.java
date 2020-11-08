@@ -1,7 +1,7 @@
 package picasso.parser.tokens;
 
 /**
- * Represents an identifier (a variable name)
+ * Represents a string
  * 
  * @author Owen Astrachan
  * @author Sara Sprenkle

@@ -53,7 +53,6 @@ public class TokenFactory {
 					return parseColorToken(tokenizer);
 				}
 				
-				// TODO: Handle quoted strings
 				// Others?
 
 				return ct;
