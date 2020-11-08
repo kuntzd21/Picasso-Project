@@ -12,7 +12,7 @@ import picasso.view.commands.*;
  * Main container for the Picasso application
  *
  * @author Robert Duvall (rcd@cs.duke.edu)
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
@@ -29,9 +29,13 @@ public class Frame extends JFrame {
 		commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
 		commands.add("Save", new Writer());
 
+		InputPanel input = new InputPanel(canvas);
+		input.add("Evaluate");
+
 		// add our container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);
 		getContentPane().add(commands, BorderLayout.NORTH);
+		getContentPane().add(input, BorderLayout.SOUTH);
 		pack();
 	}
 }
