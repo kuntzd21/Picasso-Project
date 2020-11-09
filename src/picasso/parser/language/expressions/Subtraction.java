@@ -36,7 +36,7 @@ public class Subtraction extends BinaryOperator {
 		
 		double red = result.getRed() - result2.getRed();
 		double green = result.getGreen() - result2.getGreen();
-		double blue = result.getBlue() -result2.getBlue();
+		double blue = result.getBlue() - result2.getBlue();
 
 		return new RGBColor(red, green, blue);
 	}
