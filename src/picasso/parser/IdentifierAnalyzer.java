@@ -26,6 +26,12 @@ public class IdentifierAnalyzer implements SemanticAnalyzerInterface {
 		idToExpression.put("y", new Y());
 	}
 
+	/**
+	 * Generates an expression tree based off of the given stack of tokens
+	 * 
+	 * @param tokens a stack of tokens
+	 * @return an expression tree node
+	 */
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		IdentifierToken t = (IdentifierToken) tokens.pop();

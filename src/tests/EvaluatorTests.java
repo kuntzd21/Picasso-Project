@@ -40,6 +40,8 @@ public class EvaluatorTests {
 		for (int i = -1; i <= 1; i++) {
 			assertEquals(new RGBColor(1, -1, 1), e.evaluate(i, i));
 		}
+		ExpressionTreeNode etn = parser.makeExpression("[2, -2, 0]");
+		assertEquals(new RGBColor(1, -1, 0), etn);
 	}
 
 	@Test
@@ -47,8 +49,16 @@ public class EvaluatorTests {
 		X x = new X();
 		for (int i = -1; i <= 1; i++) {
 			assertEquals(new RGBColor(i, i, i), x.evaluate(i, i));
+		assertEquals(new RGBColor(1, 1, 1), x.evaluate(1, 0));
 		}
 	}
+	
+	@Test
+	public void testYEvaluation() {
+		Y y = new Y();
+		assertEquals(new RGBColor(-1, -1, -1), y.evaluate(1, -1));
+	}
+	
 	
 	// TODO: More tests of evaluation
 
