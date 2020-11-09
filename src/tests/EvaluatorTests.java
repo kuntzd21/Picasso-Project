@@ -4,6 +4,7 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.Color;
 
@@ -41,7 +42,21 @@ public class EvaluatorTests {
 			assertEquals(new RGBColor(1, -1, 1), e.evaluate(i, i));
 		}
 	}
-
+	
+	@Test
+	public void testConstantEvaluationOutOfRange() {
+		assertThrows(IllegalArgumentException.class, () -> {
+			ExpressionTreeNode e = parser.makeExpression("[1.2, -1, 1]");
+			});
+		
+		@Test
+		public void testYEvaluation() {
+			Y y = new Y();
+			for (int i = -1; i <= 1; i++) {
+				assertEquals(new RGBColor(i, i, i), y.evaluate(i, i));
+			}
+		}
+		
 	@Test
 	public void testXEvaluation() {
 		X x = new X();
@@ -52,4 +67,5 @@ public class EvaluatorTests {
 	
 	// TODO: More tests of evaluation
 
+	
 }
