@@ -28,7 +28,8 @@ public class Frame extends JFrame {
 		commands.add("Open", new Reader());
 		//commands.add("Evaluate", new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
 		commands.add("Save", new Writer());
-
+		
+		//add panel for user input at bottom
 		InputPanel input = new InputPanel(canvas);
 		input.add("Evaluate",new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
 
