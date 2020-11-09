@@ -180,8 +180,8 @@ public class ExpressionTreeGenerator {
 
 	/**
 	 * 
-	 * @param token
-	 * @return
+	 * @param token a binary operator token
+	 * @return the level of priority that the binary operation has in terms of order of operation
 	 */
 	private int orderOfOperation(Token token) {
 

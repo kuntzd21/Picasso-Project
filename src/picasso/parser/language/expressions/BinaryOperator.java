@@ -14,8 +14,10 @@ public abstract class BinaryOperator extends ExpressionTreeNode {
 	ExpressionTreeNode param2;
 
 	/**
+	 * Constructor for abstract BinaryOperator class
 	 * 
-	 * @param param
+	 * @param param an expressionTreeNode
+	 * @param param2 an expressionTreeNode
 	 */
 	public BinaryOperator(ExpressionTreeNode param, ExpressionTreeNode param2) {
 		this.param = param;

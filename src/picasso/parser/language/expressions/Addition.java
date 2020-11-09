@@ -11,9 +11,6 @@ import picasso.parser.language.ExpressionTreeNode;
 
 public class Addition extends BinaryOperator {
 
-	/**
-	 * 
-	 */
 	public Addition(ExpressionTreeNode param, ExpressionTreeNode param2) {
 		super(param, param2);
 	}

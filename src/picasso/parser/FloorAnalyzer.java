@@ -17,6 +17,11 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 	
 	private static FloorAnalyzer singleton;
 
+	/**
+	 * Getter method for singleton class state.
+	 * 
+	 * @return the singleton class state, which is a FloorAnalyzer
+	 */
 	public static FloorAnalyzer getInstance() {
 		if (singleton == null) {
 			singleton = new FloorAnalyzer();

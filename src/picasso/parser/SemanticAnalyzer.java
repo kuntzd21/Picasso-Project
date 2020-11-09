@@ -39,9 +39,6 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 		return ourInstance;
 	}
 
-	/**
-	 * 
-	 */
 	private SemanticAnalyzer() {
 		tokenToSemAnalyzer = new HashMap<Class<?>, SemanticAnalyzerInterface>();
 		createFunctionParserMappings();
