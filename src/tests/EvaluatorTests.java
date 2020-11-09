@@ -50,14 +50,7 @@ public class EvaluatorTests {
 		assertThrows(IllegalArgumentException.class, () -> {
 			ExpressionTreeNode e = parser.makeExpression("[1.2, -1, 1]");
 			});
-		
-		@Test
-		public void testYEvaluation() {
-			Y y = new Y();
-			for (int i = -1; i <= 1; i++) {
-				assertEquals(new RGBColor(i, i, i), y.evaluate(i, i));
-			}
-		}
+	}
 		
 	@Test
 	public void testXEvaluation() {
