@@ -27,7 +27,11 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
 		// Need to remove the floor token
-		tokens.pop();
+		Token ftoken = (Token) tokens.pop();
+		
+		if (ftoken.toString() != "Floor Function Token") {
+			throw new ParseException("Not a floor function token.");
+		}
 		
 		// the parameter is the next token on the stack.
 		// But, it needs to be processed
