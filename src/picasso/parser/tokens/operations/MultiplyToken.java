@@ -4,7 +4,7 @@ import picasso.parser.language.CharConstants;
 import picasso.parser.tokens.chars.CharToken;
 
 /**
- * Represents the minus sign token
+ * Represents the multiplication sign token
  * 
  */
 public class MultiplyToken extends CharToken implements OperationInterface {
