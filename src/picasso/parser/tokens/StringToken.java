@@ -3,8 +3,7 @@ package picasso.parser.tokens;
 /**
  * Represents a string
  * 
- * @author Owen Astrachan
- * @author Sara Sprenkle
+ * @author Nick Steinert
  * 
  */
 public class StringToken extends Token {
