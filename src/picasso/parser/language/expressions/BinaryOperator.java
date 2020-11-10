@@ -16,12 +16,12 @@ public abstract class BinaryOperator extends ExpressionTreeNode {
 	/**
 	 * Constructor for abstract BinaryOperator class
 	 * 
-	 * @param param an expressionTreeNode
-	 * @param param2 an expressionTreeNode
+	 * @param left an expressionTreeNode
+	 * @param right an expressionTreeNode
 	 */
-	public BinaryOperator(ExpressionTreeNode param, ExpressionTreeNode param2) {
-		this.left = param;
-		this.right = param2;
+	public BinaryOperator(ExpressionTreeNode left, ExpressionTreeNode right) {
+		this.left = left;
+		this.right = right;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public abstract class BinaryOperator extends ExpressionTreeNode {
 			return false;
 		}
 		
-		//cast as a binary opperator
+		//cast as a binary operator
 		BinaryOperator a = (BinaryOperator) obj;
 		return (right.equals(a.right) && left.equals(a.left));
 	}
