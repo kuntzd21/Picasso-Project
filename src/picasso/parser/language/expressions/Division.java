@@ -11,8 +11,8 @@ import picasso.parser.language.ExpressionTreeNode;
 
 public class Division extends BinaryOperator {
 
-	public Division(ExpressionTreeNode param, ExpressionTreeNode param2) {
-		super(param, param2);
+	public Division(ExpressionTreeNode left, ExpressionTreeNode right) {
+		super(left, right);
 	}
 
 	/**
@@ -23,8 +23,8 @@ public class Division extends BinaryOperator {
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
-		RGBColor result = param.evaluate(x, y);
-		RGBColor result2 = param2.evaluate(x, y);
+		RGBColor result = left.evaluate(x, y);
+		RGBColor result2 = right.evaluate(x, y);
 		
 		double red;
 		double green;
@@ -50,23 +50,6 @@ public class Division extends BinaryOperator {
 		}
 
 		return new RGBColor(red, green, blue);
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == this) {
-			return true;
-		}
-		if (!(obj instanceof Division)) {
-			return false;
-		}
-		Division a = (Division) obj;
-		return param.equals(a.param);
 	}
 
 }

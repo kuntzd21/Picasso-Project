@@ -5,7 +5,7 @@ import picasso.parser.language.ExpressionTreeNode;
 /**
  * Represents a function that takes two arguments.
  * 
- * @author Linkimals
+ * @author Nick Steinert
  *
  */
 public abstract class BinaryOperator extends ExpressionTreeNode {

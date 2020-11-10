@@ -5,7 +5,7 @@ import picasso.parser.language.ExpressionTreeNode;
 /**
  * Represents the addition function in the Picasso language.
  * 
- * @author Linkimals
+ * @author Nick Steinert
  *
  */
 
