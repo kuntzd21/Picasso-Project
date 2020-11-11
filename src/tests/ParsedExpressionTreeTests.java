@@ -88,5 +88,17 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("floor( x + y )");
 		assertEquals(new Floor(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void divisionExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x/y");
+		assertEquals(new Division(new X(), new Y()), e);
+		
+		e = parser.makeExpression("y/x");
+		assertEquals(new Division(new Y(), new X()), e);
+		
+		e = parser.makeExpression("x/[0, 0, 0]");
+		assertEquals(new Division(new X(), new RGBColor(0, 0, 0)), e);
+	}
 
 }
