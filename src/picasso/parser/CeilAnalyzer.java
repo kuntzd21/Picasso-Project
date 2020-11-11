@@ -8,34 +8,34 @@ import picasso.parser.tokens.Token;
 import picasso.parser.tokens.IdentifierToken;
 
 /**
- * Handles parsing the floor function.
+ * Handles parsing the ceiling function.
  * 
- * @author Sara Sprenkle
+ * @author Nick Steinert
  * 
  */
-public class FloorAnalyzer extends UnaryFunctionAnalyzer {
+public class CeilAnalyzer extends UnaryFunctionAnalyzer {
 	
-	private static FloorAnalyzer singleton;
+	private static CeilAnalyzer singleton;
 
 	/**
 	 * Getter method for singleton class state.
 	 * 
-	 * @return the singleton class state, which is a FloorAnalyzer
+	 * @return the singleton class state, which is a CeilAnalyzer
 	 */
-	public static FloorAnalyzer getInstance() {
+	public static CeilAnalyzer getInstance() {
 		if (singleton == null) {
-			singleton = new FloorAnalyzer();
+			singleton = new CeilAnalyzer();
 		}
 		return singleton;
 	}
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Need to remove the floor token
+		// Need to remove the ceiling token
 		Token ftoken = (Token) tokens.pop();
 		
-		if (ftoken.toString() != "Floor Function Token") {
-			throw new ParseException("Not a floor function token.");
+		if (ftoken.toString() != "Ceiling Function Token") {
+			throw new ParseException("Not a ceiling function token.");
 		}
 		
 		// the parameter is the next token on the stack.
