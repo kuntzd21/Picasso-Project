@@ -4,11 +4,15 @@ import picasso.parser.language.CharConstants;
 import picasso.parser.tokens.chars.CharToken;
 
 /**
- * Represents the minus sign token
+ * Represents the exponent sign token
  * 
  */
 public class ExponentiateToken extends CharToken implements OperationInterface {
 	public ExponentiateToken() {
 		super(CharConstants.CARET);
+	}
+	
+	public int getPrecedence() {
+		return EXPONENTIATION;
 	}
 }

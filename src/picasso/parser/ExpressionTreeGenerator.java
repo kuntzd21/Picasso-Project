@@ -16,14 +16,9 @@ import picasso.parser.tokens.operations.*;
  * @author former student solution
  * @author Robert C. Duvall (added comments, exceptions)
  * @author Sara Sprenkle modified for Picasso
+ * @author Nick Steinert modified order of opperations
  */
 public class ExpressionTreeGenerator {
-
-	// TODO: Do these belong here?
-	private static final int CONSTANT = 0;
-	private static final int GROUPING = 1; // parens
-	private static final int ADD_OR_SUBTRACT = 2;
-	private static final int MULTIPLY_OR_DIVIDE = 3;
 
 	/**
 	 * Converts the given string into expression tree for easier manipulation.
@@ -105,8 +100,7 @@ public class ExpressionTreeGenerator {
 				 */
 				while (!operators.isEmpty()
 						&& !(operators.peek() instanceof LeftParenToken)
-						&& orderOfOperation(token) <= orderOfOperation(operators
-								.peek())) {
+						&& ((OperationInterface) token).getPrecedence() <= ((OperationInterface) operators.peek()).getPrecedence()) {
 					postfixResult.push(operators.pop());
 				}
 
@@ -176,23 +170,5 @@ public class ExpressionTreeGenerator {
 
 		// System.out.println(postfixResult);
 		return postfixResult;
-	}
-
-	/**
-	 * 
-	 * @param token a binary operator token
-	 * @return the level of priority that the binary operation has in terms of order of operation
-	 */
-	private int orderOfOperation(Token token) {
-
-		// TODO: Need to finish with other operators.
-
-		// TODO: DISCUSS: Is it better to have a method in the OperatorToken
-		// class that gives the order of operation?
-
-		if (token instanceof PlusToken || token instanceof MinusToken)
-			return ADD_OR_SUBTRACT;
-		else
-			return CONSTANT;
 	}
 }
