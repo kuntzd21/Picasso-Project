@@ -3,7 +3,7 @@ package picasso.parser;
 import java.util.Stack;
 
 import picasso.parser.language.ExpressionTreeNode;
-import picasso.parser.language.expressions.Ceiling;
+import picasso.parser.language.expressions.Floor;
 import picasso.parser.tokens.Token;
 import picasso.parser.tokens.IdentifierToken;
 
@@ -40,7 +40,7 @@ public class FloorAnalyzer extends UnaryFunctionAnalyzer {
 		
 		// the parameter is the next token on the stack.
 		// But, it needs to be processed
-		return new Ceiling(SemanticAnalyzer.getInstance().generateExpressionTree(
+		return new Floor(SemanticAnalyzer.getInstance().generateExpressionTree(
 				tokens));
 		
 	}
