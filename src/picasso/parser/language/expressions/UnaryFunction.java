@@ -32,4 +32,29 @@ public abstract class UnaryFunction extends ExpressionTreeNode {
 		return this.getClass() + ": " + param;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+		//check that the classes match
+		if (this.getClass() != obj.getClass()) {
+			return false;
+		}
+		
+		//check if its a unary function
+		if (!(obj instanceof UnaryFunction)) {
+			return false;
+		}
+		
+		//cast as a binary operator
+		UnaryFunction u = (UnaryFunction) obj;
+		return param.equals(u.param);
+	}
+	
 }
