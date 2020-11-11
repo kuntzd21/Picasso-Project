@@ -1,17 +1,19 @@
+/**
+ * 
+ */
 package picasso.parser.language.expressions;
 
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the addition function in the Picasso language.
+ * Represents the exponentiate function in the Picasso language.
  * 
  * @author Linkimals
  *
  */
+public class Exponentiate extends BinaryOperator {
 
-public class Addition extends BinaryOperator {
-
-	public Addition(ExpressionTreeNode left, ExpressionTreeNode right) {
+	public Exponentiate(ExpressionTreeNode left, ExpressionTreeNode right) {
 		super(left, right);
 	}
 
@@ -26,9 +28,9 @@ public class Addition extends BinaryOperator {
 		RGBColor result = left.evaluate(x, y);
 		RGBColor result2 = right.evaluate(x, y);
 		
-		double red = result.getRed() + result2.getRed();
-		double green = result.getGreen() + result2.getGreen();
-		double blue = result.getBlue() + result2.getBlue();
+		double red = Math.pow(result.getRed(), result2.getRed());
+		double green = Math.pow(result.getGreen(), result2.getGreen());
+		double blue = Math.pow(result.getBlue(), result2.getBlue());
 
 		return new RGBColor(red, green, blue);
 	}

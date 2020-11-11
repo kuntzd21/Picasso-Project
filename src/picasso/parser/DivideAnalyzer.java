@@ -9,8 +9,7 @@ import picasso.parser.tokens.Token;
 /**
  * Handles parsing the divide or "division function".
  * 
- * @author Robert C. Duvall
- * @author Sara Sprenkle
+ * @author Linkimals
  * 
  */
 public class DivideAnalyzer implements SemanticAnalyzerInterface {
