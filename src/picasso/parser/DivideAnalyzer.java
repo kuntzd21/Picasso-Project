@@ -13,13 +13,13 @@ import picasso.parser.tokens.Token;
  * @author Sara Sprenkle
  * 
  */
-public class DivisionAnalyzer implements SemanticAnalyzerInterface {
+public class DivideAnalyzer implements SemanticAnalyzerInterface {
 	
-	private static DivisionAnalyzer singleton;
+	private static DivideAnalyzer singleton;
 
-	public static DivisionAnalyzer getInstance() {
+	public static DivideAnalyzer getInstance() {
 		if (singleton == null) {
-			singleton = new DivisionAnalyzer();
+			singleton = new DivideAnalyzer();
 		}
 		return singleton;
 	}

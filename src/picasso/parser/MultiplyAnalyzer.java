@@ -13,13 +13,13 @@ import picasso.parser.tokens.Token;
  * @author Sara Sprenkle
  * 
  */
-public class MultiplicationAnalyzer implements SemanticAnalyzerInterface {
+public class MultiplyAnalyzer implements SemanticAnalyzerInterface {
 	
-	private static MultiplicationAnalyzer singleton;
+	private static MultiplyAnalyzer singleton;
 
-	public static MultiplicationAnalyzer getInstance() {
+	public static MultiplyAnalyzer getInstance() {
 		if (singleton == null) {
-			singleton = new MultiplicationAnalyzer();
+			singleton = new MultiplyAnalyzer();
 		}
 		return singleton;
 	}
