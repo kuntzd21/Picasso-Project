@@ -4,11 +4,15 @@ import picasso.parser.language.CharConstants;
 import picasso.parser.tokens.chars.CharToken;
 
 /**
- * Represents the minus sign token
+ * Represents the divide sign token
  * 
  */
 public class DivideToken extends CharToken implements OperationInterface {
 	public DivideToken() {
 		super(CharConstants.SLASH);
+	}
+	
+	public int getPrecedence() {
+		return MULTIPLY_DIVIDE_MOD;
 	}
 }

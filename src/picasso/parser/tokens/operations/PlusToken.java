@@ -11,4 +11,8 @@ public class PlusToken extends CharToken implements OperationInterface {
 	public PlusToken() {
 		super(CharConstants.PLUS);
 	}
+	
+	public int getPrecedence() {
+		return ADD_OR_SUBTRACT;
+	}
 }

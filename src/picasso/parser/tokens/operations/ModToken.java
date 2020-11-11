@@ -4,11 +4,15 @@ import picasso.parser.language.CharConstants;
 import picasso.parser.tokens.chars.CharToken;
 
 /**
- * Represents the minus sign token
+ * Represents the mod sign token
  * 
  */
 public class ModToken extends CharToken implements OperationInterface {
 	public ModToken() {
 		super(CharConstants.MOD);
+	}
+	
+	public int getPrecedence() {
+		return MULTIPLY_DIVIDE_MOD;
 	}
 }

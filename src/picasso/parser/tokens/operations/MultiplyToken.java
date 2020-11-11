@@ -11,4 +11,8 @@ public class MultiplyToken extends CharToken implements OperationInterface {
 	public MultiplyToken() {
 		super(CharConstants.STAR);
 	}
+	
+	public int getPrecedence() {
+		return MULTIPLY_DIVIDE_MOD;
+	}
 }
