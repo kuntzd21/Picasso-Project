@@ -104,10 +104,10 @@ public class ParsedExpressionTreeTests {
 	@Test
 	public void absFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("abs( x )");
-		assertEquals(new Absolute(new X()), e);
+		assertEquals(new Abs(new X()), e);
 
 		e = parser.makeExpression("abs( x + y )");
-		assertEquals(new Absolute(new Addition(new X(), new Y())), e);
+		assertEquals(new Abs(new Addition(new X(), new Y())), e);
 	}
 	
 	@Test
