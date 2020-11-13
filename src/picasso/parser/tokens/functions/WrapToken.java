@@ -10,7 +10,7 @@ package picasso.parser.tokens.functions;
 public class WrapToken extends FunctionToken {
 
 	public WrapToken() {
-		super("Wrap Funtion Token");
+		super("Wrap Function Token");
 	}
 
 }

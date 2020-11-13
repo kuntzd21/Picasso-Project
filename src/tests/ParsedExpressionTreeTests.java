@@ -136,4 +136,13 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("tan( x + y )");
 		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void wrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("wrap( x )");
+		assertEquals(new Wrap(new X()), e);
+
+		e = parser.makeExpression("wrap( x + y )");
+		assertEquals(new Wrap(new Addition(new X(), new Y())), e);
+	}
 }
