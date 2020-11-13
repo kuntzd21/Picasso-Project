@@ -127,4 +127,13 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("sin( x + y )");
 		assertEquals(new Sine(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void tanFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("tan( x )");
+		assertEquals(new Tangent(new X()), e);
+
+		e = parser.makeExpression("tan( x + y )");
+		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+	}
 }
