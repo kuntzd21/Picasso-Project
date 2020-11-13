@@ -9,7 +9,7 @@ import picasso.parser.tokens.Token;
 /**
  * Handles parsing the cosine function.
  * 
- * @author Linkimals
+ * @author Nick Steinert
  * 
  */
 public class CosAnalyzer extends UnaryFunctionAnalyzer {
@@ -30,7 +30,7 @@ public class CosAnalyzer extends UnaryFunctionAnalyzer {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Need to remove the cosine value token
+		// Need to remove the ceiling token
 		Token ftoken = (Token) tokens.pop();
 		
 		if (ftoken.toString() != "Cosine Function Token") {

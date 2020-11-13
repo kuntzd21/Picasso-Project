@@ -4,7 +4,7 @@
 package picasso.parser.tokens.functions;
 
 /**
- * Represents the Cosine function token.
+ * Represents the sine function token.
  *
  */
 public class CosToken extends FunctionToken {
