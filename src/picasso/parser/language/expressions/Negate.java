@@ -3,7 +3,7 @@ package picasso.parser.language.expressions;
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the addition function in the Picasso language.
+ * Represents the negate operator in the Picasso language.
  * 
  * @author Linkimals
  *
