@@ -3,7 +3,7 @@ package picasso.parser;
 import java.util.Stack;
 
 import picasso.parser.language.ExpressionTreeNode;
-import picasso.parser.language.expressions.Absolute;
+import picasso.parser.language.expressions.Abs;
 import picasso.parser.tokens.Token;
 
 /**
@@ -39,8 +39,8 @@ public class AbsAnalyzer extends UnaryFunctionAnalyzer {
 		
 		// the parameter is the next token on the stack.
 		// But, it needs to be processed
-		return new Absolute(SemanticAnalyzer.getInstance().generateExpressionTree(tokens));
-}
+		return new Abs(SemanticAnalyzer.getInstance().generateExpressionTree(tokens));
+	}
 }
 
 
