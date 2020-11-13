@@ -63,6 +63,18 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
+	public void divisionExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x/y");
+		assertEquals(new Division(new X(), new Y()), e);
+		
+		e = parser.makeExpression("y/x");
+		assertEquals(new Division(new Y(), new X()), e);
+		
+		e = parser.makeExpression("x/[0, 0, 0]");
+		assertEquals(new Division(new X(), new RGBColor(0, 0, 0)), e);
+	}
+	
+	@Test
 	public void exponentiatesExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("x^y");
 		assertEquals(new Exponentiate(new X(), new Y()), e);
@@ -90,15 +102,11 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
-	public void divisionExpressionTests() {
-		ExpressionTreeNode e = parser.makeExpression("x/y");
-		assertEquals(new Division(new X(), new Y()), e);
-		
-		e = parser.makeExpression("y/x");
-		assertEquals(new Division(new Y(), new X()), e);
-		
-		e = parser.makeExpression("x/[0, 0, 0]");
-		assertEquals(new Division(new X(), new RGBColor(0, 0, 0)), e);
-	}
+	public void absFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("abs( x )");
+		assertEquals(new Absolute(new X()), e);
 
+		e = parser.makeExpression("abs( x + y )");
+		assertEquals(new Absolute(new Addition(new X(), new Y())), e);
+	}
 }

@@ -5,7 +5,6 @@ import java.util.Stack;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Ceiling;
 import picasso.parser.tokens.Token;
-import picasso.parser.tokens.IdentifierToken;
 
 /**
  * Handles parsing the ceiling function.
