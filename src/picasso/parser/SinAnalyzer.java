@@ -33,7 +33,7 @@ public class SinAnalyzer extends UnaryFunctionAnalyzer {
 		// Need to remove the sine value token
 		Token ftoken = (Token) tokens.pop();
 		
-		if (ftoken.toString() != "Sine Function Token") {
+		if (ftoken.toString() != "Sin Function Token") {
 			throw new ParseException("Not a sine function token.");
 		}
 		

@@ -40,8 +40,7 @@ public class ClampAnalyzer extends UnaryFunctionAnalyzer {
 		// the parameter is the next token on the stack.
 		// But, it needs to be processed
 		return new Clamp(SemanticAnalyzer.getInstance().generateExpressionTree(
-				tokens));
-		
+				tokens));	
 	}
 
 }
