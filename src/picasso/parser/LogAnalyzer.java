@@ -6,8 +6,6 @@ import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Ceiling;
 import picasso.parser.language.expressions.Exp;
 import picasso.parser.language.expressions.Log;
-import picasso.parser.language.expressions.Sin;
-import picasso.parser.language.expressions.Tan;
 import picasso.parser.tokens.Token;
 import picasso.parser.tokens.IdentifierToken;
 
