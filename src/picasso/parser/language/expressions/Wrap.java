@@ -31,13 +31,13 @@ public class Wrap extends UnaryFunction {
 		RGBColor result = param.evaluate(x, y);
 		
 		double red = result.getRed();
-		red = wrapFunctionality(red);
+		red = wrapping(red);
 		
 		double green = result.getGreen();
-		green = wrapFunctionality(green);
+		green = wrapping(green);
 		 
 		double blue = result.getBlue();
-		blue = wrapFunctionality(blue);
+		blue = wrapping(blue);
 		
 		return new RGBColor(red, green, blue);
 	}
@@ -48,7 +48,7 @@ public class Wrap extends UnaryFunction {
 	 * @param color
 	 * @return wrapped color
 	 */
-	private double wrapFunctionality(double color) {
+	private double wrapping(double color) {
 		while (color >= 1 && color <= -1) {
 			if (color >= 1) {
 				color = color - 1;
