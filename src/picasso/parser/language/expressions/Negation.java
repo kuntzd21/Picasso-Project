@@ -9,9 +9,9 @@ import picasso.parser.language.ExpressionTreeNode;
  *
  */
 
-public class Negate extends UnaryOperator {
+public class Negation extends UnaryOperator {
 
-	public Negate(ExpressionTreeNode param) {
+	public Negation(ExpressionTreeNode param) {
 		super(param);
 	}
 

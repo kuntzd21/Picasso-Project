@@ -157,7 +157,10 @@ public class ParsedExpressionTreeTests {
 	
 	@Test
 	public void negateOperatorTests() {
-		ExpressionTreeNode e = parser.makeExpression("! x");
-		assertEquals(new Negate(new X()), e);
+		ExpressionTreeNode e = parser.makeExpression("!x");
+		assertEquals(new Negation(new X()), e);
+		
+		e = parser.makeExpression("!(x * y)");
+		assertEquals(new Negation(new Multiplication(new X(), new Y())), e);
 	}
 }
