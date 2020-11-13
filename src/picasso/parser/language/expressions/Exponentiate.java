@@ -18,10 +18,10 @@ public class Exponentiate extends BinaryOperator {
 	}
 
 	/**
-	 * Evaluates this expression at the given x,y point by evaluating the sum of
+	 * Evaluates this expression at the given x,y point by evaluating the exponentiation of
 	 * the function's parameters.
 	 * 
-	 * @return the color from evaluating the sum of the expression's parameters
+	 * @return the color from evaluating the exponentiation of the expression's parameters
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {

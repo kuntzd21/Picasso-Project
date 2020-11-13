@@ -109,4 +109,13 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("abs( x + y )");
 		assertEquals(new Absolute(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void cosFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("cos( x )");
+		assertEquals(new Cosine(new X()), e);
+
+		e = parser.makeExpression("cos( x + y )");
+		assertEquals(new Cosine(new Addition(new X(), new Y())), e);
+	}
 }

@@ -30,7 +30,7 @@ public class AbsAnalyzer extends UnaryFunctionAnalyzer {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Need to remove the ceiling token
+		// Need to remove the absolute value token
 		Token ftoken = (Token) tokens.pop();
 		
 		if (ftoken.toString() != "Absolute Value Function Token") {

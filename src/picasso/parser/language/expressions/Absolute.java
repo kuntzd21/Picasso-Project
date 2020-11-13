@@ -3,7 +3,7 @@ package picasso.parser.language.expressions;
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the ceiling function in the Picasso language.
+ * Represents the absolute value function in the Picasso language.
  * 
  * @author Robert C. Duvall
  * @author Sara Sprenkle
@@ -12,7 +12,7 @@ import picasso.parser.language.ExpressionTreeNode;
 public class Absolute extends UnaryFunction {
 
 	/**
-	 * Create a ceiling expression that takes as a parameter the given expression
+	 * Create an absolute value expression that takes as a parameter the given expression
 	 * 
 	 * @param param the expression to ceiling
 	 */
@@ -24,7 +24,7 @@ public class Absolute extends UnaryFunction {
 	 * Evaluates this expression at the given x,y point by evaluating the ceiling of
 	 * the function's parameter.
 	 * 
-	 * @return the color from evaluating the ceiling of the expression's parameter
+	 * @return the color from evaluating the absolute value of the expression's parameter
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
