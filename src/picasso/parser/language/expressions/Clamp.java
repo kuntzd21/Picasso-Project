@@ -3,20 +3,20 @@ package picasso.parser.language.expressions;
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the wrap function in the Picasso language.
+ * Represents the clamp function in the Picasso language.
  * 
  * @author Robert C. Duvall
  * @author Sara Sprenkle
  * @author Linkimals
  */
-public class Wrap extends UnaryFunction {
+public class Clamp extends UnaryFunction {
 
 	/**
-	 * Create a wrap expression that takes as a parameter the given expression
+	 * Create a clamp expression that takes as a parameter the given expression
 	 * 
-	 * @param param the expression to wrap
+	 * @param param the expression to clamp
 	 */
-	public Wrap(ExpressionTreeNode param) {
+	public Clamp(ExpressionTreeNode param) {
 		super(param);
 	}
 
@@ -31,31 +31,29 @@ public class Wrap extends UnaryFunction {
 		RGBColor result = param.evaluate(x, y);
 		
 		double red = result.getRed();
-		red = wrapping(red);
+		red = clamping(red);
 		
 		double green = result.getGreen();
-		green = wrapping(green);
+		green = clamping(green);
 		 
 		double blue = result.getBlue();
-		blue = wrapping(blue);
+		blue = clamping(blue);
 		
 		return new RGBColor(red, green, blue);
 	}
 
 	/**
-	 * Method that contains wrap functionality.
+	 * Method that contains clamping functionality.
 	 * 
 	 * @param color
-	 * @return wrapped color
+	 * @return clamped color
 	 */
-	private double wrapping(double color) {
-		while (color >= 1 && color <= -1) {
-			if (color >= 1) {
-				color = color - 1;
-			}
-			else if (color <= -1) {
-				color = color + 1;
-			}
+	private double clamping(double color) {
+		if (color < -1) {
+			color = -1;
+		}
+		else if (color > 1 ) {
+			color = 1;
 		}
 		return color;
 	}
