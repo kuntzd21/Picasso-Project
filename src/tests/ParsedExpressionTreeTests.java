@@ -154,4 +154,10 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("clamp( x + y )");
 		assertEquals(new Clamp(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void negateOperatorTests() {
+		ExpressionTreeNode e = parser.makeExpression("! x");
+		assertEquals(new Negate(new X()), e);
+	}
 }
