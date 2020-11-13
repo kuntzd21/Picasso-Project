@@ -10,7 +10,7 @@ package picasso.parser.tokens.functions;
 public class TanToken extends FunctionToken {
 
 	public TanToken() {
-		super("Tangent Funtion Token");
+		super("Tan Funtion Token");
 	}
 
 }

@@ -35,7 +35,7 @@ public class AbsAnalyzer extends UnaryFunctionAnalyzer {
 		// Need to remove the floor token
 		Token ftoken = (Token) tokens.pop();
 		
-		if (ftoken.toString() != "Abs Function Token") {
+		if (ftoken.toString() != "Absolute Value Function Token") {
 			throw new ParseException("Not an abs function token.");
 		}
 		

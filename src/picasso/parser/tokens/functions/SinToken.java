@@ -10,7 +10,7 @@ package picasso.parser.tokens.functions;
 public class SinToken extends FunctionToken {
 	
 	public SinToken() {
-		super("Sine Function Token");
+		super("Sin Function Token");
 	}
 
 }
