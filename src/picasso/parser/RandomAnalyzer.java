@@ -38,7 +38,6 @@ public class RandomAnalyzer implements SemanticAnalyzerInterface {
 			throw new ParseException("Not a random function token.");
 		}
 		
-		return new Random(SemanticAnalyzer.getInstance().generateExpressionTree(
-				tokens));
+		return new Random();
 	}
 }

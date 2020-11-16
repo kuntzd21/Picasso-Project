@@ -1,7 +1,5 @@
 package picasso.parser.language.expressions;
 
-import picasso.parser.language.ExpressionTreeNode;
-
 /**
  * Represents the random function in the Picasso language.
  * 
@@ -11,7 +9,7 @@ import picasso.parser.language.ExpressionTreeNode;
 
 public class Random {
 
-	public Random(ExpressionTreeNode param) {
+	public Random() {
 	}
 
 	/**
@@ -21,7 +19,6 @@ public class Random {
 	 * @return the color from evaluating the randomized value of the expression's parameters
 	 */
 	public RGBColor evaluate(double x, double y) {
-		
 		double red = Math.random();
 		double green = Math.random();
 		double blue = Math.random();
