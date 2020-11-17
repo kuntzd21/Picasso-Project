@@ -29,9 +29,27 @@ public class Tangent extends UnaryFunction {
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		RGBColor result = param.evaluate(x, y);
-		double red = Math.tan(result.getRed());
-		double green = Math.tan(result.getGreen());
-		double blue = Math.tan(result.getBlue());
+		double red;
+		double green;
+		double blue;
+		
+		if (Math.cos(result.getRed()) == 0) {
+			red = 0;}
+		else {
+			red = Math.tan(result.getRed());
+		}
+				
+		if (Math.cos(result.getGreen()) == 0) {
+			green = 0;}
+		else {
+			green = Math.tan(result.getGreen());
+		}
+
+		if (Math.cos(result.getBlue()) == 0) {
+			blue = 0;}
+		else {
+			blue = Math.tan(result.getBlue());
+		}
 
 		return new RGBColor(red, green, blue);
 	}
