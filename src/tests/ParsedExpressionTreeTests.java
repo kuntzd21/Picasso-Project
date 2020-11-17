@@ -163,4 +163,11 @@ public class ParsedExpressionTreeTests {
 		e = parser.makeExpression("!(x * y)");
 		assertEquals(new Negation(new Multiplication(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void PerlinColorTests() {
+		ExpressionTreeNode e = parser.makeExpression("perlinColor(x,y)");
+		assertEquals(new PerlinColor(new X(),new Y()), e);
+		
+	}
 }

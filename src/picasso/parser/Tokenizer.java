@@ -40,6 +40,12 @@ public class Tokenizer {
 	 * @return the list of Picasso tokens (in order) in the string
 	 */
 	public List<Token> parseTokens(String s) {
+	       // - is seen as a numeric character. If we try to parse, e.g., x-y, 
+	       // it is seen as one string "x-y".  See StreamTokenizer documentation about
+	       // handling words. So, our imperfect solution is to always add
+	       // a space before a minus sign. Negative numbers will still be
+	       // seen as numbers, and the space will mark the end of a word.
+	    s = s.replace("-", " -");
 		tokenizer = new StreamTokenizer(new StringReader(s));
 		tokenizer.quoteChar(CharConstants.QUOTE);
 
@@ -118,8 +124,8 @@ public class Tokenizer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String expression = "x - y";
-		//String expression = "\"cats.jpeg\"";
+		//String expression = "cos(sin(x-y))";
+		String expression = "\"cats.jpeg\"";
 		Tokenizer tokenizer = new Tokenizer();
 		System.out.println("Tokens" + tokenizer.parseTokens(expression));
 	}
