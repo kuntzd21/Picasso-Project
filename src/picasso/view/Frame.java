@@ -27,6 +27,8 @@ public class Frame extends JFrame {
 		ButtonPanel commands = new ButtonPanel(canvas);
 		commands.add("Open", new Reader());
 		commands.add("Save", new Writer());
+		commands.add("Zoom In", new ZoomInEvaluater());
+		commands.add("Zoom Out", new ZoomOutEvaluater());
 		
 		//add panel for user input at bottom
 		InputPanel input = new InputPanel(canvas);

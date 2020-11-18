@@ -19,12 +19,26 @@ public class Evaluater implements Command<Pixmap> {
 	public static final double DOMAIN_MIN = -1;
 	public static final double DOMAIN_MAX = 1;
 
+	protected static double zoomDomainMin = DOMAIN_MIN;
+	protected static double zoomDomainMax = DOMAIN_MAX;
+	
+	public static double zoomInFactor = 0.9;
+	public static double zoomOutFactor = 1.1;
+	
+	private static ExpressionTreeNode expr;
+	
+
 	/**
 	 * Evaluate an expression for each point in the image.
 	 */
 	public void execute(Pixmap target) {
-		// create the expression to evaluate just once
-		ExpressionTreeNode expr = createExpression();
+		zoomDomainMin = DOMAIN_MIN;
+		zoomDomainMax = DOMAIN_MAX;
+		expr = createExpression();
+		paintPixmap(target);
+	}
+
+	protected void paintPixmap(Pixmap target) {
 		// evaluate it for each pixel
 		Dimension size = target.getSize();
 		for (int imageY = 0; imageY < size.height; imageY++) {
@@ -41,14 +55,20 @@ public class Evaluater implements Command<Pixmap> {
 	 * Convert from image space to domain space.
 	 */
 	protected double imageToDomainScale(int value, int bounds) {
+		double range = zoomDomainMax - zoomDomainMin;
+		return ((double) value / bounds) * range + zoomDomainMin;
+	}
+/*
+	protected double imageToDomainScale(int value, int bounds) {
 		double range = DOMAIN_MAX - DOMAIN_MIN;
 		return ((double) value / bounds) * range + DOMAIN_MIN;
 	}
-
+*/
+	
 	/**
 	 * Creates expression tree based on the text field in InputPanel
 	 */
-	private ExpressionTreeNode createExpression() {
+	protected ExpressionTreeNode createExpression() {
 		// Note, when you're testing, you can use the ExpressionTreeGenerator to
 		// generate expression trees from strings, or you can create expression
 		// objects directly (as in the commented statement below).
