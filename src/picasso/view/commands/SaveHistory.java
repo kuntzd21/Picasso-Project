@@ -7,7 +7,6 @@ import picasso.model.Pixmap;
 import picasso.util.Command;
 import picasso.view.InputPanel;
 
-import java.util.*;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,17 +15,17 @@ import javax.swing.JOptionPane;
  */
 public class SaveHistory implements Command<Pixmap> {
 	
-	List<Object> history = new ArrayList<>();
+	private String history = "";
+	private String exprString;
 
 	/**
 	 * Evaluate an expression for each point in the image.
 	 */
 	public void execute(Pixmap target) {
-		String exprString = createExpressionString();
-		history.add(exprString);
+		exprString = createExpressionString();
+		history = history + exprString + "\n";
 		JOptionPane.showMessageDialog(null, history, "Expression history", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
 	
 	/**
 	 * Creates string of expression based on the text field in InputPanel to be stored
