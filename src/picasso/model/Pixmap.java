@@ -2,6 +2,7 @@ package picasso.model;
 
 import java.awt.*;
 import java.awt.image.*;
+import java.lang.String;
 import java.io.*;
 import javax.imageio.*;
 
@@ -178,6 +179,9 @@ public class Pixmap {
 			myFileName = fileName;
 			myImage = ImageIO.read(new File(myFileName));
 			mySize = new Dimension(myImage.getWidth(), myImage.getHeight());
+			if (myImage.getWidth() > 800) {
+				mySize = new Dimension(myImage.getWidth()/3, myImage.getHeight()/3);
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
