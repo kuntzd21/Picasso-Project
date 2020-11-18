@@ -43,6 +43,9 @@ public class ExpressionTreeGenerator {
 
 		// Is this the best place to put this check?
 		if (!postfix.isEmpty()) {
+			while (!postfix.isEmpty()) {
+				postfix.pop();
+			}
 			throw new ParseException(
 					"Extra operands without operators or functions");
 		}
