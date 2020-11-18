@@ -268,6 +268,13 @@ public class TokenizerTest {
 		assertEquals(new RightParenToken(), tokens.get(3));
 	}
 	
+	@Test
+	public void testTokenizeRandomExpression() {
+		String expression = "random";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new RandomToken(), tokens.get(0));
+	}
+	
 	
 	@Test
 	public void testTokenizeCombinedFunctionExpression() {
@@ -283,12 +290,11 @@ public class TokenizerTest {
 		assertEquals(new IdentifierToken("y"), tokens.get(7));
 		assertEquals(new RightParenToken(), tokens.get(8));
 
-
-		expression = "sin(perlinColor(x, y))";
+		expression = "sin(perlinBW(x, y))";
 		tokens = tokenizer.parseTokens(expression);
 		assertEquals(new SinToken(), tokens.get(0));
 		assertEquals(new LeftParenToken(), tokens.get(1));
-		assertEquals(new PerlinColorToken(), tokens.get(2));
+		assertEquals(new PerlinBWToken(), tokens.get(2));
 		assertEquals(new LeftParenToken(), tokens.get(3));
 		assertEquals(new IdentifierToken("x"), tokens.get(4));
 		assertEquals(new CommaToken(), tokens.get(5));
@@ -297,6 +303,6 @@ public class TokenizerTest {
 		assertEquals(new RightParenToken(), tokens.get(8));
 	}
 
-	// TODO: Test arithmetic (rather than function-based) expressions ...
-
+	
+	
 }
