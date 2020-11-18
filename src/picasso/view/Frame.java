@@ -33,6 +33,7 @@ public class Frame extends JFrame {
 		//add panel for user input at bottom
 		InputPanel input = new InputPanel(canvas);
 		input.add("Evaluate",new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
+		input.add("Save to history",new ThreadedCommand<Pixmap>(canvas, new SaveHistory()));
 
 		// add our container to Frame and show it
 		getContentPane().add(canvas, BorderLayout.CENTER);
