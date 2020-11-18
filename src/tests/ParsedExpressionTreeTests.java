@@ -75,6 +75,27 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
+	public void negateExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("!x");
+		assertEquals(new Negation(new X()), e);
+		
+		e = parser.makeExpression("!(y/x)");
+		assertEquals(new Negation(new Division(new Y(), new X())), e);
+	}
+	
+	@Test
+	public void moduloExpressionTests() {
+		ExpressionTreeNode e = parser.makeExpression("x%y");
+		assertEquals(new Modulo(new X(), new Y()), e);
+		
+		e = parser.makeExpression("y%x");
+		assertEquals(new Modulo(new Y(), new X()), e);
+		
+		e = parser.makeExpression("x%[0, 0, 0]");
+		assertEquals(new Modulo(new X(), new RGBColor(0, 0, 0)), e);
+	}
+	
+	@Test
 	public void exponentiatesExpressionTests() {
 		ExpressionTreeNode e = parser.makeExpression("x^y");
 		assertEquals(new Exponentiate(new X(), new Y()), e);
@@ -120,6 +141,15 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
+	public void logFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("log( x )");
+		assertEquals(new Log(new X()), e);
+
+		e = parser.makeExpression("log( x + y )");
+		assertEquals(new Log(new Addition(new X(), new Y())), e);
+	}
+	
+	@Test
 	public void sinFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("sin( x )");
 		assertEquals(new Sine(new X()), e);
@@ -135,6 +165,15 @@ public class ParsedExpressionTreeTests {
 
 		e = parser.makeExpression("tan( x + y )");
 		assertEquals(new Tangent(new Addition(new X(), new Y())), e);
+	}
+	
+	@Test
+	public void atanFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("atan( x )");
+		assertEquals(new ATangent(new X()), e);
+
+		e = parser.makeExpression("atan( x + y )");
+		assertEquals(new ATangent(new Addition(new X(), new Y())), e);
 	}
 	
 	@Test
@@ -156,6 +195,33 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
+	public void perlinBWFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("perlinBW( x , y )");
+		assertEquals(new PerlinBW(new X(), new Y()), e);
+
+		e = parser.makeExpression("perlinBW( x + y , x)");
+		assertEquals(new PerlinBW(new Addition(new X(), new Y()), new X()), e);
+	}
+	
+	@Test
+	public void perlinColorFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("perlinColor( x , y )");
+		assertEquals(new PerlinColor(new X(), new Y()), e);
+
+		e = parser.makeExpression("perlinColor( x + y , x)");
+		assertEquals(new PerlinColor(new Addition(new X(), new Y()), new X()), e);
+	}
+	
+	@Test
+	public void randomFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("random");
+		assertEquals(new Random(), e);
+
+		e = parser.makeExpression("perlinColor( random , x)");
+		assertEquals(new PerlinColor(new Random(), new X()), e);
+	}
+
+	@Test
 	public void negateOperatorTests() {
 		ExpressionTreeNode e = parser.makeExpression("!x");
 		assertEquals(new Negation(new X()), e);
@@ -165,9 +231,14 @@ public class ParsedExpressionTreeTests {
 	}
 	
 	@Test
-	public void PerlinColorTests() {
-		ExpressionTreeNode e = parser.makeExpression("perlinColor(x,y)");
-		assertEquals(new PerlinColor(new X(),new Y()), e);
-		
+	public void RgbToYCrCbFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("rgbToYCrCb(x+y)");
+		assertEquals(new RgbToYCrCb(new Addition(new X(), new Y())), e);
+	}
+	
+	@Test
+	public void YCrCbtoRGBFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("yCrCbtoRGB(x+y)");
+		assertEquals(new YCrCbtoRGB(new Addition(new X(), new Y())), e);
 	}
 }
