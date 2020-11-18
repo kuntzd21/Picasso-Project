@@ -3,8 +3,11 @@ package picasso.view.commands;
 import java.awt.Color;
 import java.awt.Dimension;
 
+import javax.swing.JOptionPane;
+
 import picasso.model.Pixmap;
 import picasso.parser.ExpressionTreeGenerator;
+import picasso.parser.ParseException;
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.util.Command;
 import picasso.view.InputPanel;
@@ -34,7 +37,12 @@ public class Evaluater implements Command<Pixmap> {
 	public void execute(Pixmap target) {
 		zoomDomainMin = DOMAIN_MIN;
 		zoomDomainMax = DOMAIN_MAX;
-		expr = createExpression();
+		try {
+			expr = createExpression();
+		}
+		catch (ParseException e) {
+			JOptionPane.showMessageDialog(null, e, "Error", JOptionPane.INFORMATION_MESSAGE);
+		}
 		paintPixmap(target);
 	}
 
