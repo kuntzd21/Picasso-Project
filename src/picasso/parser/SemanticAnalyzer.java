@@ -65,7 +65,11 @@ public class SemanticAnalyzer implements SemanticAnalyzerInterface {
 
 		// TODO: Are there any others that should be added?
 		// Is there a better way to create this mapping?
+		tokenName = PARSER_PACKAGE + TOKENS_PACKAGE_NAME + "StringToken";
+		parserName = PARSER_PACKAGE + "ImageAnalyzer";
+		addSemanticAnalyzerMapping(tokenName, parserName);
 	}
+	
 
 	/**
 	 * Adds the mapping between the Token class and the SemanticAnalyzer class

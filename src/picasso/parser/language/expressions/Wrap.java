@@ -25,7 +25,7 @@ public class Wrap extends UnaryFunction {
 	 * the function's parameter.
 	 * 
 	 * @return the color from evaluating the wrap of the expression's parameter
-	 */
+	 */	
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		RGBColor result = param.evaluate(x, y);
@@ -48,13 +48,13 @@ public class Wrap extends UnaryFunction {
 	 * @param color
 	 * @return wrapped color
 	 */
-	private double wrapping(double color) {
-		while (color >= 1 && color <= -1) {
-			if (color >= 1) {
-				color = color - 1;
+	static double wrapping(double color) {
+		while (color > 1 || color < -1) {
+			if (color > 1) {
+				color = color - 2;
 			}
-			else if (color <= -1) {
-				color = color + 1;
+			else if (color < -1) {
+				color = color + 2;
 			}
 		}
 		return color;
