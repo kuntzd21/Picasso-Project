@@ -53,6 +53,5 @@ public class Reader extends FileCommand<Pixmap> {
 			}
 		}}
 		
-		
 	
 
