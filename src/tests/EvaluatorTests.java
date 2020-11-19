@@ -17,9 +17,10 @@ import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.*;
 
 /**
- * Tests of the evaluation of x
+ * Tests of the evaluation of all functions/operations in Picasso.
  * 
  * @author Sara Sprenkle
+ * @author Linkimals
  * 
  */
 public class EvaluatorTests {
@@ -187,7 +188,47 @@ public class EvaluatorTests {
 		}
 	}
 	
-	// TODO: More tests of evaluation
-
+	@Test
+	public void testNegationEvaluation() {
+		Negation testneg = new Negation(new X());
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(-i, -i, -i), testneg.evaluate(i, i));
+		assertEquals(new RGBColor(-1, -1, -1), testneg.evaluate(1, 0));
+		}
+	}
+	
+	@Test
+	public void testSineEvaluation() {
+		Sine testsin = new Sine(new X());
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(Math.sin(i), Math.sin(i), Math.sin(i)), testsin.evaluate(i, i));
+		assertEquals(new RGBColor(Math.sin(1), Math.sin(1), Math.sin(1)), testsin.evaluate(1, 0));
+		}
+	}
+	
+	@Test
+	public void testSubtractionnEvaluation() {
+		Subtraction testsub = new Subtraction(new X(), new Y());
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(i - i, i - i, i - i), testsub.evaluate(i, i));
+		assertEquals(new RGBColor(1, 1, 1), testsub.evaluate(1, 0));
+		}
+	}
+	
+	@Test
+	public void testTangentEvaluation() {
+		Tangent testtan = new Tangent(new X());
+		for (int i = -1; i <= 1; i++) {
+			assertEquals(new RGBColor(Math.tan(i), Math.tan(i), Math.tan(i)), testtan.evaluate(i, i));
+		assertEquals(new RGBColor(Math.tan(1), Math.tan(1), Math.tan(1)), testtan.evaluate(1, 0));
+		}
+	}
+	
+	@Test
+	public void testWrapEvaluation() {
+		Wrap testwrap = new Wrap(new X());
+		assertEquals(new RGBColor(1, 1, 1), testwrap.evaluate(3, 3));
+		assertEquals(new RGBColor(-1, -1, -1), testwrap.evaluate(-3, -3));
+		}
 	
 }
