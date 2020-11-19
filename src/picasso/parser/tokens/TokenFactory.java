@@ -120,7 +120,7 @@ public class TokenFactory {
 			errorMsg += "Blue must be within range [-1,1].";
 		}
 		if (error) {
-			throw new ParseException(errorMsg);
+			throw new IllegalArgumentException(errorMsg);
 		}
 
 		return new ColorToken(red.value(), green.value(), blue.value());
