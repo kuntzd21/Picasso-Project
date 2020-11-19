@@ -11,7 +11,7 @@ import picasso.parser.tokens.IdentifierToken;
 /**
  * Handles parsing the exponent function.
  * 
- * @author Nick Steinert
+ * @author Linkimals
  * 
  */
 public class ExpAnalyzer extends UnaryFunctionAnalyzer {

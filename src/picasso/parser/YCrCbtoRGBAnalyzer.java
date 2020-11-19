@@ -14,7 +14,7 @@ import picasso.parser.tokens.IdentifierToken;
 /**
  * Handles parsing the YCrCbtoRGB function.
  * 
- * @author Nick Steinert
+ * @author Linkimals
  * 
  */
 public class YCrCbtoRGBAnalyzer extends UnaryFunctionAnalyzer {

@@ -21,10 +21,10 @@ public class Clamp extends UnaryFunction {
 	}
 
 	/**
-	 * Evaluates this expression at the given x,y point by evaluating the wrap of
+	 * Evaluates this expression at the given x,y point by evaluating the clamp of
 	 * the function's parameter.
 	 * 
-	 * @return the color from evaluating the wrap of the expression's parameter
+	 * @return the color from evaluating the clamp of the expression's parameter
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {

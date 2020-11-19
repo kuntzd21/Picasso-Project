@@ -14,7 +14,7 @@ public class Abs extends UnaryFunction {
 	/**
 	 * Create an absolute value expression that takes as a parameter the given expression
 	 * 
-	 * @param param the expression to tangent
+	 * @param param the expression to absolute value
 	 */
 	public Abs(ExpressionTreeNode param) {
 		super(param);

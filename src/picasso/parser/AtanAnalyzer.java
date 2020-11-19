@@ -7,7 +7,7 @@ import picasso.parser.language.expressions.ATangent;
 import picasso.parser.tokens.Token;
 
 /**
- * Handles parsing the tangent function.
+ * Handles parsing the arc tangent function.
  * 
  * @author Linkimals
  * 
@@ -19,7 +19,7 @@ public class AtanAnalyzer extends UnaryFunctionAnalyzer {
 	/**
 	 * Getter method for singleton class state.
 	 * 
-	 * @return the singleton class state, which is a TanAnalyzer
+	 * @return the singleton class state, which is a ATanAnalyzer
 	 */
 	public static AtanAnalyzer getInstance() {
 		if (singleton == null) {
@@ -30,7 +30,7 @@ public class AtanAnalyzer extends UnaryFunctionAnalyzer {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Need to remove the tangent value token
+		// Need to remove the arc tangent token
 		Token ftoken = (Token) tokens.pop();
 		
 		if (ftoken.toString() != "Atan Function Token") {

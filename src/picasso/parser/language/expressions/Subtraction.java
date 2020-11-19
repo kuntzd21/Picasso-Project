@@ -7,10 +7,9 @@ package picasso.parser.language.expressions;
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the addition function in the Picasso language.
+ * Represents the subtraction function in the Picasso language.
  * 
- * @author jaycho
- * @author Nick Steinert
+ * @author Linkimals
  *
  */
 
@@ -21,10 +20,10 @@ public class Subtraction extends BinaryOperator {
 	}
 
 	/**
-	 * Evaluates this expression at the given x,y point by evaluating the sum of
+	 * Evaluates this expression at the given x,y point by evaluating the difference of
 	 * the function's parameters.
 	 * 
-	 * @return the color from evaluating the sum of the expression's parameters
+	 * @return the color from evaluating the difference of the expression's parameters
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {

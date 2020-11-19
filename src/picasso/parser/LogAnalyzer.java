@@ -12,7 +12,7 @@ import picasso.parser.tokens.IdentifierToken;
 /**
  * Handles parsing the logarithm function.
  * 
- * @author Nick Steinert
+ * @author Linkimals
  * 
  */
 public class LogAnalyzer extends UnaryFunctionAnalyzer {
@@ -33,7 +33,7 @@ public class LogAnalyzer extends UnaryFunctionAnalyzer {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Need to remove the exp token
+		// Need to remove the log token
 		Token ftoken = (Token) tokens.pop();
 		
 		if (ftoken.toString() != "Logarithm Function Token") {

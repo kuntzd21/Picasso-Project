@@ -3,7 +3,7 @@ package picasso.parser.language.expressions;
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
- * Represents the RgbToYCrCb function in the Picasso language.
+ * Represents the YCrCbtoRGB function in the Picasso language.
  * 
  * @author Robert C. Duvall
  * @author Sara Sprenkle
@@ -12,7 +12,7 @@ import picasso.parser.language.ExpressionTreeNode;
 public class YCrCbtoRGB extends UnaryFunction {
 
 	/**
-	 * Create a log expression that takes as a parameter the given expression
+	 * Create a YCrCbtoRGB expression that takes as a parameter the given expression
 	 * 
 	 * @param param the expression to YCrCbtoRGB
 	 */

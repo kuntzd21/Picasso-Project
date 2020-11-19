@@ -23,16 +23,18 @@ public class Frame extends JFrame {
 		Canvas canvas = new Canvas(this);
 		canvas.setSize(size);
 
+		Evaluater evaluator = new Evaluater();
+		
 		// add commands to test here
 		ButtonPanel commands = new ButtonPanel(canvas);
-		commands.add("Open", new Reader());
+		commands.add("Open", new Reader(evaluator));
 		commands.add("Save", new Writer());
 		commands.add("Zoom In", new ZoomInEvaluater());
 		commands.add("Zoom Out", new ZoomOutEvaluater());
 		
 		//add panel for user input at bottom
 		InputPanel input = new InputPanel(canvas);
-		input.add("Evaluate",new ThreadedCommand<Pixmap>(canvas, new Evaluater()));
+		input.add("Evaluate",new ThreadedCommand<Pixmap>(canvas, evaluator));
 		input.add("Save to history",new ThreadedCommand<Pixmap>(canvas, new SaveHistory()));
 
 		// add our container to Frame and show it

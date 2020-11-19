@@ -5,7 +5,7 @@ import picasso.parser.language.ExpressionTreeNode;
 /**
  * Represents the multiplication function in the Picasso language.
  * 
- * @author Nick Steinert
+ * @author Linkimals
  *
  */
 
@@ -22,7 +22,7 @@ public class Multiplication extends BinaryOperator {
 	 * Evaluates this expression at the given x,y point by evaluating the product of
 	 * the function's parameters.
 	 * 
-	 * @return the color from evaluating the sum of the expression's parameters
+	 * @return the color from evaluating the product of the expression's parameters
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
