@@ -48,7 +48,7 @@ public class Clamp extends UnaryFunction {
 	 * @param color
 	 * @return clamped color
 	 */
-	private double clamping(double color) {
+	static double clamping(double color) {
 		if (color < -1) {
 			color = -1;
 		}
