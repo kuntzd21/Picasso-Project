@@ -16,7 +16,7 @@ import picasso.parser.tokens.operations.*;
  * @author former student solution
  * @author Robert C. Duvall (added comments, exceptions)
  * @author Sara Sprenkle modified for Picasso
- * @author Nick Steinert modified order of opperations
+ * @author Linkimals modified order of operations
  */
 public class ExpressionTreeGenerator {
 

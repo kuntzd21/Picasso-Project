@@ -9,7 +9,7 @@ import picasso.parser.tokens.Token;
 /**
  * Handles parsing the ceiling function.
  * 
- * @author Nick Steinert
+ * @author Linkimals
  * 
  */
 public class CeilAnalyzer extends UnaryFunctionAnalyzer {

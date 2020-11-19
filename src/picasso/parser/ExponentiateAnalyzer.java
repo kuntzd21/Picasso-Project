@@ -28,7 +28,7 @@ public class ExponentiateAnalyzer implements SemanticAnalyzerInterface {
 
 	@Override
 	public ExpressionTreeNode generateExpressionTree(Stack<Token> tokens) {
-		// Remove the division token
+		// Remove the exponentiate token
 		tokens.pop();
 			
 		// the parameters are the next tokens on the stack.
