@@ -14,7 +14,7 @@ public class Tangent extends UnaryFunction {
 	/**
 	 * Create a tangent expression that takes as a parameter the given expression
 	 * 
-	 * @param param the expression to cosine
+	 * @param param the expression to tangent
 	 */
 	public Tangent(ExpressionTreeNode param) {
 		super(param);

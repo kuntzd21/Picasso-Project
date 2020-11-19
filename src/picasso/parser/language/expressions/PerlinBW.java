@@ -8,7 +8,7 @@ import picasso.parser.language.ExpressionTreeNode;
  * 
  * @author Robert C. Duvall
  * @author Sara Sprenkle
- * @author Nick Steinert
+ * @author Linkimals
  */
 public class PerlinBW extends BinaryOperator {
 

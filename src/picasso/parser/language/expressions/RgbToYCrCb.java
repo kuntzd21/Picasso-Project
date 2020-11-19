@@ -7,12 +7,12 @@ import picasso.parser.language.ExpressionTreeNode;
  * 
  * @author Robert C. Duvall
  * @author Sara Sprenkle
- * @author Nick Steinert
+ * @author Linkimals
  */
 public class RgbToYCrCb extends UnaryFunction {
 
 	/**
-	 * Create a log expression that takes as a parameter the given expression
+	 * Create a RgbToYCrCb expression that takes as a parameter the given expression
 	 * 
 	 * @param param the expression to RgbToYCrCb
 	 */
