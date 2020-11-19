@@ -19,8 +19,9 @@ import javax.imageio.*;
  */
 public class Image extends ExpressionTreeNode {
 	
+	public static final Color DEFAULT_COLOR = Color.BLACK;
 	private String filename;
-	private BufferedImage buffImage;
+	private static BufferedImage buffImage;
 	
 	public Image(String filename) {
 		this.filename = filename;
@@ -37,10 +38,14 @@ public class Image extends ExpressionTreeNode {
 		
 		int imageX = toIntX(x);
 		int imageY = toIntY(y);
-		
-		Color c = new Color(buffImage.getRGB(imageX, imageY));
-		return new RGBColor(c);
-		
+
+		if (isInBounds(imageX, imageY)) {
+			Color c = new Color(buffImage.getRGB(imageX, imageY));
+			return new RGBColor(c);
+		}
+		else {
+			return new RGBColor(DEFAULT_COLOR);
+		}
 	}
 		
 	protected int toIntX(double value) {
@@ -53,6 +58,18 @@ public class Image extends ExpressionTreeNode {
 		return (int) ((value - Evaluater.DOMAIN_MIN) / range * (buffImage.getHeight() - 1));
 	}
 	
+	/**
+	 * Determine if the given (x,y) coordinate is within the bounds of this image.
+	 * 
+	 * @param x the x coordinate
+	 * @param y the y coordinate
+	 * @return true if the given (x,y) coordinate is within the bounds of this
+	 *         image.
+	 */
+	public static boolean isInBounds(int x, int y) {
+		return (0 <= x && x < buffImage.getWidth()) && (0 <= y && y < buffImage.getHeight());
+	}
+
 	@Override
 	public String toString() {
 		return "Image";
