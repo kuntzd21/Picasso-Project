@@ -79,5 +79,12 @@ public class ErrorParsedEvaluatedTests {
 			parser.makeExpression("floor(x");
 		});
 	}
+	
+	@Test
+	public void errorTooManyArgs() {
+		assertThrows(ParseException.class, () -> {
+			parser.makeExpression("julia(x)");
+		});
+	}
 
 }
