@@ -241,4 +241,16 @@ public class ParsedExpressionTreeTests {
 		ExpressionTreeNode e = parser.makeExpression("yCrCbtoRGB(x+y)");
 		assertEquals(new YCrCbtoRGB(new Addition(new X(), new Y())), e);
 	}
+	
+	@Test
+	public void mandelbrotTest(){
+		ExpressionTreeNode e = parser.makeExpression("mandelbrot()");
+		assertEquals(new Mandelbrot(), e);
+		}
+	
+	@Test
+	public void juliaTest(){
+		ExpressionTreeNode e = parser.makeExpression("julia()");
+		assertEquals(new Julia(), e);
+		}
 }

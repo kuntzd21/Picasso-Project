@@ -75,18 +75,14 @@ public class ExpressionTreeGenerator {
 
 		Iterator<Token> iter = tokens.iterator();
 
-		// TO DISCUSS: Is this the correct way to design this code?
-		// What is the code smell? What is the alternative?
-
+		
 		while (iter.hasNext()) {
 			Token token = iter.next();
-			if (token instanceof NumberToken) {
+			if (token instanceof NumberToken 
+					|| token instanceof ColorToken
+					|| token instanceof IdentifierToken) {
 				postfixResult.push(token);
-			} else if (token instanceof ColorToken) {
-				postfixResult.push(token);
-			} else if (token instanceof IdentifierToken) {
-				postfixResult.push(token);
-			} else if (token instanceof FunctionToken) {
+			}  else if (token instanceof FunctionToken) {
 				operators.push(token);
 			} else if (token instanceof OperationInterface) {
 
