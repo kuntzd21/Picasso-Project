@@ -1,11 +1,9 @@
 package picasso.parser;
 
 import java.util.Stack;
-
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.parser.language.expressions.Image;
 import picasso.parser.language.expressions.ImageWrap;
-import picasso.parser.tokens.StringToken;
 import picasso.parser.tokens.Token;
 
 /**

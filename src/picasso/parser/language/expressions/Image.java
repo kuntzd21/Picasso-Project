@@ -1,7 +1,5 @@
 package picasso.parser.language.expressions;
 
-import picasso.view.commands.Reader;
-
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,11 +7,10 @@ import java.io.IOException;
 
 import picasso.parser.language.ExpressionTreeNode;
 import picasso.view.commands.Evaluater;
-import picasso.model.Pixmap;
 import javax.imageio.*;
 
 /**
- * Represents the Image function in the Picasso language.
+ * Represents an image in the Picasso language.
  * 
  * @author Linkimals
  */
@@ -23,16 +20,28 @@ public class Image extends ExpressionTreeNode {
 	private String filename;
 	private static BufferedImage buffImage;
 	
+	/**
+	 * Create an image object from the given image file.
+	 * 
+	 * @param filename the image file
+	 */
 	public Image(String filename) {
 		this.filename = filename;
 		try {
-			this.buffImage = ImageIO.read(new File(filename));
+			buffImage = ImageIO.read(new File(filename));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Not an image file.");
 			e.printStackTrace();
 		}
 	}
 	
+	/**
+	 * Evaluates the RGBColor at a pixel in the image file filename.
+	 * 
+	 * @param x the x position of the pixel
+	 * @param y the y position of the pixel
+	 * @return The RGBColor of a pixel as an RGBColor object
+	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
 		
@@ -47,26 +56,29 @@ public class Image extends ExpressionTreeNode {
 			return new RGBColor(DEFAULT_COLOR);
 		}
 	}
-		
+	
+	/**
+	 * Maps a coordinate to a positive integer within the width of the frame proportional to
+	 * value's original position.
+	 * 
+	 * @param value an x coordinate
+	 * @return a positive integer that represents a position within the frame
+	 */
 	protected int toIntX(double value) {
 		double range = Evaluater.DOMAIN_MAX - Evaluater.DOMAIN_MIN;
 		return (int) ((value - Evaluater.DOMAIN_MIN) / range * (buffImage.getWidth() - 1));
 	}
 	
+	/**
+	 * Maps a coordinate to a positive integer within the width of the frame proportional to
+	 * value's original position.
+	 * 
+	 * @param value a y coordinate
+	 * @return a positive integer that represents a position within the frame
+	 */
 	protected int toIntY(double value) {
 		double range = Evaluater.DOMAIN_MAX - Evaluater.DOMAIN_MIN;
 		return (int) ((value - Evaluater.DOMAIN_MIN) / range * (buffImage.getHeight() - 1));
-	}
-	
-	/**
-	 * @return the buffImage
-	 */
-	public BufferedImage getBuffImage() {
-		return buffImage;
-	}
-
-	public static void setBuffImage(BufferedImage buffImage) {
-		Image.buffImage = buffImage;
 	}
 
 	/**
@@ -80,9 +92,5 @@ public class Image extends ExpressionTreeNode {
 	public static boolean isInBounds(int x, int y) {
 		return (0 <= x && x < buffImage.getWidth()) && (0 <= y && y < buffImage.getHeight());
 	}
-
-	@Override
-	public String toString() {
-		return "Image";
-	}
+	
 }

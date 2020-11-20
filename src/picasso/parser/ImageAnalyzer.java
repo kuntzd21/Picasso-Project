@@ -13,7 +13,7 @@ import picasso.parser.tokens.Token;
  * @author Linkimals
  * 
  */
-public class ImageAnalyzer extends UnaryFunctionAnalyzer {
+public class ImageAnalyzer implements SemanticAnalyzerInterface {
 	
 	private static ImageAnalyzer singleton;
 
@@ -37,8 +37,6 @@ public class ImageAnalyzer extends UnaryFunctionAnalyzer {
 		// the parameter is the next token on the stack.
 		// But, it needs to be processed
 		return new Image(ftoken.getString());
-		
-		//Make sure this is actually a string token
 		
 	}
 

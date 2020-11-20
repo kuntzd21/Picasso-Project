@@ -14,6 +14,7 @@ public class RGBColor extends ExpressionTreeNode {
 	public static final double COLOR_MIN = -1;
 	public static final double COLOR_MAX = 1;
 	public static final int JAVA_COLOR_MAX = 255;
+	public static final int COLOR_RANGE = 2;
 
 	private double myRed;
 	private double myGreen;
