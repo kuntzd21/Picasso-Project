@@ -79,5 +79,16 @@ public class ErrorParsedEvaluatedTests {
 			parser.makeExpression("floor(x");
 		});
 	}
+	
+	@Test
+	public void errorMissingQuotationTest() {
+		String s = "images/AmobaMorris.png";
+		assertThrows(ParseException.class, () -> {
+			parser.makeExpression("imageWrap(s, x, y)");
+		});
+		assertThrows(ParseException.class, () -> {
+			parser.makeExpression("imageClip(s, x, y)");
+		});
+	}
 
 }

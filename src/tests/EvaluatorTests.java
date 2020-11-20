@@ -231,4 +231,11 @@ public class EvaluatorTests {
 		assertEquals(new RGBColor(-1, -1, -1), testwrap.evaluate(-3, -3));
 		}
 	
+	@Test
+	public void testImageWrapEvaluation() {
+		Image testimage = new Image("images/AmoebaMorris.png");
+		ImageWrap testimagewrap = new ImageWrap(testimage, new X(), new Y());
+		assertEquals(testimage.evaluate(1, 1), testimagewrap.evaluate(1, 1));
+	}
+	
 }

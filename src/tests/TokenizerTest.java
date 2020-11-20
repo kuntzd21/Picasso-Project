@@ -270,11 +270,38 @@ public class TokenizerTest {
 	
 	@Test
 	public void testTokenizeRandomExpression() {
-		String expression = "random";
+		String expression = "random()";
 		tokens = tokenizer.parseTokens(expression);
 		assertEquals(new RandomToken(), tokens.get(0));
 	}
 	
+	@Test
+	public void testTokenizeImageWrap() {
+		String expression = "imageWrap(\"x\", y, z)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new ImageWrapToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new StringToken("x"), tokens.get(2));
+		assertEquals(new CommaToken(), tokens.get(3));
+		assertEquals(new IdentifierToken("y"), tokens.get(4));
+		assertEquals(new CommaToken(), tokens.get(5));
+		assertEquals(new IdentifierToken("z"), tokens.get(6));
+		assertEquals(new RightParenToken(), tokens.get(7));
+	}
+	
+	@Test
+	public void testTokenizeImageClip() {
+		String expression = "imageClip(\"x\", y, z)";
+		tokens = tokenizer.parseTokens(expression);
+		assertEquals(new ImageClipToken(), tokens.get(0));
+		assertEquals(new LeftParenToken(), tokens.get(1));
+		assertEquals(new StringToken("x"), tokens.get(2));
+		assertEquals(new CommaToken(), tokens.get(3));
+		assertEquals(new IdentifierToken("y"), tokens.get(4));
+		assertEquals(new CommaToken(), tokens.get(5));
+		assertEquals(new IdentifierToken("z"), tokens.get(6));
+		assertEquals(new RightParenToken(), tokens.get(7));
+	}
 	
 	@Test
 	public void testTokenizeCombinedFunctionExpression() {

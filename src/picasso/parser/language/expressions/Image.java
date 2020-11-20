@@ -59,6 +59,17 @@ public class Image extends ExpressionTreeNode {
 	}
 	
 	/**
+	 * @return the buffImage
+	 */
+	public BufferedImage getBuffImage() {
+		return buffImage;
+	}
+
+	public static void setBuffImage(BufferedImage buffImage) {
+		Image.buffImage = buffImage;
+	}
+
+	/**
 	 * Determine if the given (x,y) coordinate is within the bounds of this image.
 	 * 
 	 * @param x the x coordinate
