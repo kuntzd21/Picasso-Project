@@ -45,8 +45,6 @@ public class ImageClipAnalyzer implements SemanticAnalyzerInterface {
 		Image image = (Image) SemanticAnalyzer.getInstance().generateExpressionTree(
 				tokens);
 		
-		// the parameter is the next token on the stack.
-		// But, it needs to be processed
 		return new ImageClip(image, x, y);
 		
 	}

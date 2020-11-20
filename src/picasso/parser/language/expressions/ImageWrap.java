@@ -1,9 +1,5 @@
 package picasso.parser.language.expressions;
 
-import picasso.view.commands.Reader;
-
-import java.awt.Color;
-
 import picasso.parser.language.ExpressionTreeNode;
 
 /**
@@ -17,6 +13,14 @@ public class ImageWrap extends ExpressionTreeNode {
 	private ExpressionTreeNode xExpression;
 	private ExpressionTreeNode yExpression;
 	
+	/**
+	 * Creates an ImageWrap object, which is an image object that is wrapped according to
+	 * the x-coordinate expression and the y-coordinate expression
+	 * 
+	 * @param image the image to be displayed an wrapped
+	 * @param xExpr the x-coordinate expression that will be wrapped
+	 * @param yExpr the y-coordinate expression that will be wrapped
+	 */
 	public ImageWrap(Image image, ExpressionTreeNode xExpr, ExpressionTreeNode yExpr) {
 		
 		this.image = image;
@@ -27,6 +31,10 @@ public class ImageWrap extends ExpressionTreeNode {
 	/**
 	 * Evaluate x expression, evaluate y expression, wrap both, then retrieve the color in
 	 * the image at the wrapped position and return it 
+	 * 
+	 * @param x the x position of the image
+	 * @param y the y position of the image
+	 * @return The RGBColor of a pixel as an RGBColor object
 	 */
 	@Override
 	public RGBColor evaluate(double x, double y) {
@@ -38,11 +46,5 @@ public class ImageWrap extends ExpressionTreeNode {
 		
 		return image.evaluate(xDouble, yDouble);
 		
-		
 		}
-
-	@Override
-	public String toString() {
-		return "ImageWrap";
-	}
 }

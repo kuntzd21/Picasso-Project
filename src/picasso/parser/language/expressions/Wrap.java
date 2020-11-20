@@ -51,10 +51,10 @@ public class Wrap extends UnaryFunction {
 	static double wrapping(double color) {
 		while (color > 1 || color < -1) {
 			if (color > 1) {
-				color = color - 2;
+				color = color - RGBColor.COLOR_RANGE;
 			}
 			else if (color < -1) {
-				color = color + 2;
+				color = color + RGBColor.COLOR_RANGE;
 			}
 		}
 		return color;
