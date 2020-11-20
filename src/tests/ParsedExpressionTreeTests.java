@@ -257,7 +257,7 @@ public class ParsedExpressionTreeTests {
 	@Test
 	public void ImageWrapFunctionTests() {
 		ExpressionTreeNode e = parser.makeExpression("imageWrap(\"images/AmoebaMorris.png\", x, y)");
-		assertEquals(new ImageWrap(new Image("images/AmoebaMorris.png"), new X(), new Y()), e);
+		assertEquals(new ImageWrap(new Image(new String()), new X(), new Y()), e);
 		
 		e = parser.makeExpression("imageWrap(\"images/AmoebaMorris.png\", x + x, y)");
 		assertEquals(new ImageWrap(new Image(new String()), new Addition(new X(), new X()), new Y()), e);
