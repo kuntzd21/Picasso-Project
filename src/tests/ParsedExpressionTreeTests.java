@@ -214,10 +214,10 @@ public class ParsedExpressionTreeTests {
 	
 	@Test
 	public void randomFunctionTests() {
-		ExpressionTreeNode e = parser.makeExpression("random");
+		ExpressionTreeNode e = parser.makeExpression("random()");
 		assertEquals(new Random(), e);
 
-		e = parser.makeExpression("perlinColor( random , x)");
+		e = parser.makeExpression("perlinColor( random(), x)");
 		assertEquals(new PerlinColor(new Random(), new X()), e);
 	}
 
@@ -253,4 +253,21 @@ public class ParsedExpressionTreeTests {
 		ExpressionTreeNode e = parser.makeExpression("julia()");
 		assertEquals(new Julia(), e);
 		}
+
+	public void ImageWrapFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("imageWrap(\"images/AmoebaMorris.png\", x, y)");
+		assertEquals(new ImageWrap(new Image(new String()), new X(), new Y()), e);
+		
+		e = parser.makeExpression("imageWrap(\"images/AmoebaMorris.png\", x + x, y)");
+		assertEquals(new ImageWrap(new Image(new String()), new Addition(new X(), new X()), new Y()), e);
+	}
+
+	@Test
+	public void ImageClipFunctionTests() {
+		ExpressionTreeNode e = parser.makeExpression("imageClip(\"images/AmoebaMorris.png\", x, y)");
+		assertEquals(new ImageClip(new Image(new String()), new X(), new Y()), e);
+		
+		e = parser.makeExpression("imageClip(\"images/AmoebaMorris.png\", x + x, y)");
+		assertEquals(new ImageClip(new Image(new String()), new Addition(new X(), new X()), new Y()), e);
+	}
 }
